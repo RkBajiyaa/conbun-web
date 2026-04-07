@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Reviews() {
   const [reviews, setReviews] = useState([]);
@@ -10,7 +11,6 @@ export default function Reviews() {
   useEffect(() => {
     async function fetchTopReviews() {
       try {
-        // Fetch only the top 3 latest reviews for the homepage
         const res = await fetch("/api/reviews?limit=3");
         const data = await res.json();
         if (data.success) {
@@ -27,18 +27,18 @@ export default function Reviews() {
 
   return (
     <div className="w-full">
-      <div className="mb-16">
+      {/* Centered header */}
+      <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-on-surface mb-4">
-          Heartfelt Reviews
+          Loved by Pet Parents
         </h2>
-        <p className="text-on-surface-variant text-[1.125rem] leading-[1.6] max-w-2xl italic">
-          Why 10,000+ pet parents trust Conbun daily.
+        <p className="text-on-surface-variant text-[1.125rem] leading-[1.6] italic">
+          Why 10,000+ families trust Conbun daily.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-[2.75rem]">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-[2.75rem] items-center">
         {isLoading ? (
-          // Premium Loading Skeletons
           [1, 2, 3].map((n) => (
             <div key={n} className="bg-surface-container-lowest p-10 rounded-[2.5rem] h-80 animate-pulse flex flex-col justify-between editorial-shadow">
               <div className="space-y-4">
@@ -55,38 +55,46 @@ export default function Reviews() {
             </div>
           ))
         ) : (
-          // Live Data Mapping
           reviews.map((rev, i) => {
-            // Theme-compliant colors for avatars without images
+            const isFeatured = i === 1;
             const bgColors = ['bg-primary/10 text-primary', 'bg-surface-container-high text-on-surface', 'bg-secondary/10 text-secondary'];
             const colorClass = bgColors[rev.author?.length % bgColors.length || 0];
 
             return (
-              <div 
-                key={rev._id || i} 
-                className="bg-surface-container-lowest p-10 rounded-[2.5rem] flex flex-col justify-between editorial-shadow transition-transform hover:-translate-y-2 duration-500 border border-outline-variant/30"
+              <div
+                key={rev._id || i}
+                className={`bg-surface-container-lowest rounded-[2.5rem] flex flex-col justify-between transition-all duration-500 border border-outline-variant/30
+                  ${isFeatured
+                    ? 'p-12 scale-[1.05] editorial-shadow shadow-2xl ring-2 ring-primary/20'
+                    : 'p-10 editorial-shadow hover:-translate-y-2'
+                  }`}
               >
                 <div>
-                  {/* Star Rating mapped to theme primary */}
-                  <div className="flex gap-1 text-primary mb-8">
+                  {/* Large editorial quote mark */}
+                  <div className="text-primary text-[5rem] leading-none font-serif mb-2 opacity-30 select-none" aria-hidden>
+                    "
+                  </div>
+
+                  {/* Stars */}
+                  <div className="flex gap-1 text-primary mb-5">
                     {[...Array(rev.rating || 5)].map((_, idx) => (
-                      <span 
-                        key={idx} 
-                        className="material-symbols-outlined text-[1.25rem]" 
+                      <span
+                        key={idx}
+                        className="material-symbols-outlined text-[1.1rem]"
                         style={{ fontVariationSettings: "'FILL' 1" }}
                       >
                         star
                       </span>
                     ))}
                   </div>
-                  {/* Review Text */}
-                  <p className="text-[1.125rem] italic font-medium leading-[1.6] text-on-surface mb-12 line-clamp-4">
-                    "{rev.text}"
+
+                  {/* Review text */}
+                  <p className={`italic font-medium leading-[1.7] text-on-surface mb-10 line-clamp-4 ${isFeatured ? 'text-[1.25rem]' : 'text-[1.125rem]'}`}>
+                    {rev.text}
                   </p>
                 </div>
 
                 <div className="flex items-center gap-5 mt-auto">
-                  {/* Profile Avatar (Image fallback to Initials) */}
                   <div className={`w-14 h-14 rounded-2xl overflow-hidden border border-outline-variant relative flex-shrink-0 flex items-center justify-center font-black text-xl ${!rev.image && colorClass}`}>
                     {rev.image ? (
                       <Image src={rev.image} alt={rev.author} fill className="object-cover" />
@@ -98,7 +106,7 @@ export default function Reviews() {
                     <p className="text-[1rem] font-extrabold text-on-surface tracking-tight line-clamp-1">
                       {rev.author}
                     </p>
-                    <p className="text-[0.75rem] text-on-surface-variant font-bold uppercase tracking-[0.1em] line-clamp-1">
+                    <p className="text-[0.75rem] text-on-surface-variant font-bold uppercase tracking-[0.1em]">
                       {rev.category ? `Parent of ${rev.category}` : "Pet Parent"}
                     </p>
                   </div>
@@ -107,6 +115,17 @@ export default function Reviews() {
             );
           })
         )}
+      </div>
+
+      {/* Bottom CTA */}
+      <div className="flex justify-center mt-14">
+        <Link
+          href="/reviews"
+          className="border-2 border-primary text-primary px-10 py-4 rounded-2xl font-extrabold text-[0.9375rem] flex items-center gap-2 hover:bg-primary hover:text-white transition-all active:scale-95"
+        >
+          Read More Reviews
+          <span className="material-symbols-outlined">arrow_forward</span>
+        </Link>
       </div>
     </div>
   );

@@ -3,13 +3,12 @@
 import { useState } from "react";
 
 export default function FAQSection() {
-  // Keeps track of which FAQ is currently open. (0 means the first one is open by default)
   const [openIndex, setOpenIndex] = useState(0);
 
   const faqs = [
     {
       q: "Is Conbun available 24/7 for pet care consultation?",
-      a: "Yes. Conbun offers 24/7 online pet care consultation. Whether it's a late-night healthy emergency or a Sunday afternoon query, our veterinarians are available round the clock via chat, call, or video."
+      a: "Yes. Conbun offers 24/7 online pet care consultation. Whether it's a late-night emergency or a Sunday afternoon query, our veterinarians are available round the clock via chat, call, or video."
     },
     {
       q: "What types of pets can I get consultation for?",
@@ -21,7 +20,7 @@ export default function FAQSection() {
     },
     {
       q: "How much does a pet consultation cost on Conbun?",
-      a: "Conbun offers online vet consultations starting from just ₹199. Schedule a one-on-one appointment with a vet, far cheaper than a physical vet visit."
+      a: "Conbun offers online vet consultations starting from just ₹199. Schedule a one-on-one appointment with a vet — far cheaper than a physical vet visit."
     },
     {
       q: "Can I get a consultation for my new puppy or kitten?",
@@ -35,17 +34,22 @@ export default function FAQSection() {
 
   return (
     <div className="w-full">
-      <h2 className="text-4xl md:text-5xl font-extrabold mb-16 text-center tracking-tight text-on-surface">
-        Frequently Asked Questions
-      </h2>
-      
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight text-on-surface">
+          Frequently Asked Questions
+        </h2>
+        <p className="text-[1.125rem] text-on-surface-variant leading-[1.6] italic max-w-2xl mx-auto">
+          Everything you need to know before your first consultation.
+        </p>
+      </div>
+
       <div className="space-y-6">
         {faqs.map((faq, i) => {
           const isOpen = openIndex === i;
 
           return (
-            <div 
-              key={i} 
+            <div
+              key={i}
               onClick={() => setOpenIndex(isOpen ? null : i)}
               className={`p-8 rounded-[2rem] cursor-pointer group transition-all duration-300 editorial-shadow
                 ${isOpen ? "bg-surface-container-lowest" : "bg-surface-container-low hover:bg-surface-container-lowest"}`}
@@ -55,14 +59,13 @@ export default function FAQSection() {
                   ${isOpen ? "text-primary" : "text-on-surface group-hover:text-primary"}`}>
                   {faq.q}
                 </h4>
-                
+
                 <span className={`material-symbols-outlined transition-transform duration-300 shrink-0
                   ${isOpen ? "text-primary rotate-180" : "text-on-surface-variant/40 group-hover:text-primary"}`}>
                   {isOpen ? "remove" : "add"}
                 </span>
               </div>
 
-              {/* Expanded Content with a smooth grid transition */}
               <div className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100 mt-6 pt-6 border-t border-outline-variant/10" : "grid-rows-[0fr] opacity-0"}`}>
                 <div className="overflow-hidden">
                   <p className="text-[1rem] leading-[1.6] text-on-surface-variant italic">
