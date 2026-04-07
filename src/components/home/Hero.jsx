@@ -74,7 +74,7 @@ export default function Hero() {
             <div className="flex items-center gap-4">
               <div className="flex -space-x-3">
                 <div className="w-12 h-12 rounded-full border-4 border-surface overflow-hidden relative editorial-shadow bg-surface-container-low">
-                   <Image src="/dog.png" alt="User" fill className="object-cover" />
+                   <Image src="/heroimage.png" alt="User" fill className="object-cover" />
                 </div>
                 <div className="w-12 h-12 rounded-full border-4 border-surface bg-primary flex items-center justify-center text-[10px] font-black text-white editorial-shadow">
                   4.9★
@@ -91,7 +91,7 @@ export default function Hero() {
         <div className="lg:col-span-5 relative hidden md:block">
           <div className="relative rounded-[3rem] overflow-hidden aspect-[4/5] editorial-shadow group bg-surface-container-low">
             <Image 
-              src="/dog.png" 
+              src="/heroimage.png" 
               alt="Expert Vet" 
               fill 
               className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
