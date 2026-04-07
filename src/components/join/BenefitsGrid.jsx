@@ -2,24 +2,24 @@ import Image from 'next/image';
 
 export default function BenefitsGrid() {
   return (
-    <section className="py-24 bg-[#f5f3f3]">
+    <section className="py-24 bg-surface-container-low">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-16 max-w-2xl">
-          <h2 className="text-4xl font-extrabold text-[#1b1c1c] tracking-tight mb-4">Empowering Your Practice</h2>
-          <p className="text-[#554337] text-lg">
+          <h2 className="text-4xl font-extrabold text-on-surface tracking-tight mb-4">Empowering Your Practice</h2>
+          <p className="text-on-surface-variant text-lg">
             We provide the infrastructure; you provide the care. Experience the future of work-life balance.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Work from Anywhere */}
-          <div className="md:col-span-2 bg-white p-10 rounded-[2rem] shadow-[0_12px_32px_-4px_rgba(85,67,55,0.08)] flex flex-col justify-between">
+          <div className="md:col-span-2 bg-surface-container-lowest p-10 rounded-[2rem] editorial-shadow flex flex-col justify-between">
             <div>
-              <div className="w-14 h-14 bg-[#ffdcc5] flex items-center justify-center rounded-2xl mb-8">
-                <span className="material-symbols-outlined text-[#944a00] text-3xl">language</span>
+              <div className="w-14 h-14 bg-primary-fixed flex items-center justify-center rounded-2xl mb-8">
+                <span className="material-symbols-outlined text-primary text-3xl">language</span>
               </div>
-              <h3 className="text-3xl font-bold mb-4 text-[#1b1c1c]">Work from Anywhere</h3>
-              <p className="text-[#554337] text-lg leading-relaxed max-w-md">
+              <h3 className="text-3xl font-bold mb-4 text-on-surface">Work from Anywhere</h3>
+              <p className="text-on-surface-variant text-lg leading-relaxed max-w-md">
                 Whether you're at home or on the move, our secure HIPAA-compliant platform keeps you connected to your patients without the commute.
               </p>
             </div>
@@ -29,7 +29,7 @@ export default function BenefitsGrid() {
           </div>
 
           {/* Total Schedule Freedom */}
-          <div className="bg-[#944a00] text-white p-10 rounded-[2rem] shadow-[0_12px_32px_-4px_rgba(85,67,55,0.08)] flex flex-col justify-between">
+          <div className="bg-primary text-white p-10 rounded-[2rem] editorial-shadow flex flex-col justify-between">
             <div className="w-14 h-14 bg-white/10 flex items-center justify-center rounded-2xl mb-8">
               <span className="material-symbols-outlined text-white text-3xl">schedule</span>
             </div>
@@ -42,26 +42,26 @@ export default function BenefitsGrid() {
           </div>
 
           {/* Seamless Billing */}
-          <div className="bg-white p-10 rounded-[2rem] shadow-[0_12px_32px_-4px_rgba(85,67,55,0.08)] flex flex-col md:flex-row gap-8 items-center md:col-span-2">
-            <div className="w-20 h-20 bg-[#ffdbcd] flex-shrink-0 flex items-center justify-center rounded-full">
-              <span className="material-symbols-outlined text-[#360f00] text-4xl">payments</span>
+          <div className="bg-surface-container-lowest p-10 rounded-[2rem] editorial-shadow flex flex-col md:flex-row gap-8 items-center md:col-span-2">
+            <div className="w-20 h-20 bg-secondary-fixed flex-shrink-0 flex items-center justify-center rounded-full">
+              <span className="material-symbols-outlined text-on-secondary-fixed text-4xl">payments</span>
             </div>
             <div>
-              <h3 className="text-2xl font-bold mb-2 text-[#1b1c1c]">Seamless Billing</h3>
-              <p className="text-[#554337]">
+              <h3 className="text-2xl font-bold mb-2 text-on-surface">Seamless Billing</h3>
+              <p className="text-on-surface-variant">
                 Automated invoicing and instant payouts. No more chasing insurance or manual paperwork. Focus 100% on medical outcomes.
               </p>
             </div>
           </div>
 
           {/* Verified Professional */}
-          <div className="bg-[#e4e2e2] p-10 rounded-[2rem] shadow-[0_12px_32px_-4px_rgba(85,67,55,0.08)]">
+          <div className="bg-surface-container-highest p-10 rounded-[2rem] editorial-shadow">
             <div className="flex flex-col h-full">
-              <div className="mb-6 text-[#f28c38]">
+              <div className="mb-6 text-primary-container">
                 <span className="material-symbols-outlined text-4xl" style={{ fontVariationSettings: "'FILL' 1" }}>verified_user</span>
               </div>
-              <h3 className="text-2xl font-bold mb-2 text-[#1b1c1c]">Verified Professional</h3>
-              <p className="text-[#554337]">
+              <h3 className="text-2xl font-bold mb-2 text-on-surface">Verified Professional</h3>
+              <p className="text-on-surface-variant">
                 Receive a Conbun Verified Badge that boosts your authority and trust among the pet community.
               </p>
             </div>

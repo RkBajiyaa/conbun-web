@@ -8,16 +8,28 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      q: "What animals do you treat?",
-      a: "We specialize in cats and dogs, but our network includes experts for birds, rabbits, and exotic pets as well."
+      q: "Is Conbun available 24/7 for pet care consultation?",
+      a: "Yes. Conbun offers 24/7 online pet care consultation. Whether it's a late-night healthy emergency or a Sunday afternoon query, our veterinarians are available round the clock via chat, call, or video."
     },
     {
-      q: "Is a digital prescription valid?",
-      a: "Yes, our digital prescriptions are digitally signed and recognized by most major pharmacies. You can show them right from your phone."
+      q: "What types of pets can I get consultation for?",
+      a: "Conbun covers dogs, cats, birds (parrots, cockatiels, finches), rabbits, fish (freshwater and marine), and exotic pets like reptiles. Veterinarians are trained in breed-specific care, so you always get advice relevant to your pet."
     },
     {
-      q: "How do the free follow-ups work?",
-      a: "After your initial consultation, your chat window remains open with the same doctor for 7 days. You can ask follow-up questions or share recovery progress at no extra cost."
+      q: "Are Conbun's pet consultants certified and verified?",
+      a: "Absolutely. Every expert undergoes rigorous verification, credential/background checks, and quality review. We have 500+ certified vets & pet care consultants across veterinary health, nutrition, behaviour, and grooming."
+    },
+    {
+      q: "How much does a pet consultation cost on Conbun?",
+      a: "Conbun offers online vet consultations starting from just ₹199. Schedule a one-on-one appointment with a vet, far cheaper than a physical vet visit."
+    },
+    {
+      q: "Can I get a consultation for my new puppy or kitten?",
+      a: "Yes! Conbun is your pet care partner from kittenhood to adulthood. Our experts guide you through vaccinations, feeding schedules, socialisation, toilet training, and the first-year care roadmap."
+    },
+    {
+      q: "Is Conbun available across India?",
+      a: "Yes. Wherever you are in India, veterinary care is just a tap away. Talk to veterinarians online in your own language. Get localised veterinary help across all regions in India."
     }
   ];
 

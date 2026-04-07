@@ -12,7 +12,7 @@ export default function Features() {
             We've reimagined pet healthcare to be as fast, personal, and professional as you deserve.
           </p>
         </div>
-        <div className="hidden md:block h-[1.5px] flex-1 bg-outline-variant/20 mb-4 mx-10"></div>
+        <div className="hidden md:block h-[1.5px] flex-1 bg-outline-variant mb-4 mx-10"></div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-6 gap-[2.75rem] min-h-[650px]">
@@ -60,7 +60,7 @@ export default function Features() {
         </div>
 
         {/* Item 5: Free Follow-up */}
-        <div className="md:col-span-2 bg-primary-container/10 p-10 rounded-[2rem] flex flex-col justify-between border border-primary-container/10 editorial-shadow transition-all hover:-translate-y-1">
+        <div className="md:col-span-2 bg-primary/5 p-10 rounded-[2rem] flex flex-col justify-between border border-outline-variant editorial-shadow transition-all hover:-translate-y-1">
           <span className="material-symbols-outlined text-primary text-4xl mb-8" style={{ fontVariationSettings: "'FILL' 1" }}>history</span>
           <div>
             <h3 className="text-[1.25rem] font-extrabold mb-3 text-primary tracking-tight italic">7 Days Free Follow-up</h3>

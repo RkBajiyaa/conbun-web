@@ -1,27 +1,30 @@
+"use client";
+
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function BlogSection() {
-  const posts = [
-    {
-      category: "Nutrition",
-      title: "Wet vs Dry Cat Food: The Definitive Guide",
-      desc: "Understanding which texture provides the best hydration and nutrient density for your feline friend.",
-      img: "/dog.png",
-    },
-    {
-      category: "Wellness",
-      title: "Dog Gut Health: 5 Warning Signs to Watch",
-      desc: "How to identify and treat common digestive issues before they become chronic problems.",
-      img: "/dog.png",
-    },
-    {
-      category: "New Owners",
-      title: "The Ultimate New Pet Owner Checklist",
-      desc: "Everything you need from the first 24 hours to the first 6 months with your new companion.",
-      img: "/dog.png",
+  const [blogs, setBlogs] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchLatestBlogs() {
+      try {
+        const res = await fetch("/api/blogs");
+        const data = await res.json();
+        if (data.success) {
+          // Grab only the 3 newest blogs for the homepage
+          setBlogs(data.blogs.slice(0, 3));
+        }
+      } catch (error) {
+        console.error("Error loading homepage blogs:", error);
+      } finally {
+        setIsLoading(false);
+      }
     }
-  ];
+    fetchLatestBlogs();
+  }, []);
 
   return (
     <div className="w-full">
@@ -45,30 +48,45 @@ export default function BlogSection() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-[2.75rem]">
-        {posts.map((post, i) => (
-          <article key={i} className="group cursor-pointer flex flex-col">
-            <div className="aspect-[16/10] rounded-[1.5rem] overflow-hidden mb-6 relative editorial-shadow shrink-0">
-              <Image 
-                src={post.img} 
-                alt={post.title} 
-                fill 
-                className="object-cover group-hover:scale-105 transition-transform duration-700" 
-              />
-            </div>
-            
-            <p className="text-[0.75rem] font-extrabold text-primary uppercase tracking-[0.1em] mb-3">
-              {post.category}
-            </p>
-            
-            <h3 className="text-[1.25rem] font-extrabold text-on-surface mb-3 group-hover:text-primary transition-colors leading-tight tracking-tight">
-              {post.title}
-            </h3>
-            
-            <p className="text-on-surface-variant text-[1rem] leading-[1.6] line-clamp-2 italic mt-auto">
-              {post.desc}
-            </p>
-          </article>
-        ))}
+        {isLoading ? (
+          // Loading Skeletons
+          [1, 2, 3].map((n) => (
+            <article key={n} className="animate-pulse flex flex-col">
+              <div className="aspect-[16/10] rounded-[1.5rem] bg-surface-container-high mb-6"></div>
+              <div className="h-3 w-20 bg-surface-container-high rounded-full mb-3"></div>
+              <div className="h-6 w-full bg-surface-container-high rounded-full mb-3"></div>
+              <div className="h-4 w-3/4 bg-surface-container-high rounded-full"></div>
+            </article>
+          ))
+        ) : (
+          // Live Data Mapping
+          blogs.map((post) => (
+            <Link key={post._id} href="/blog" className="group cursor-pointer flex flex-col">
+              <article className="flex flex-col h-full">
+                <div className="aspect-[16/10] rounded-[1.5rem] overflow-hidden mb-6 relative editorial-shadow shrink-0 bg-surface-container-high border border-outline-variant/20">
+                  <Image 
+                    src={post.image || "/dog.png"} 
+                    alt={post.title} 
+                    fill 
+                    className="object-cover group-hover:scale-105 transition-transform duration-700" 
+                  />
+                </div>
+                
+                <p className="text-[0.75rem] font-extrabold text-primary uppercase tracking-[0.1em] mb-3">
+                  {post.category || "Article"}
+                </p>
+                
+                <h3 className="text-[1.25rem] font-extrabold text-on-surface mb-3 group-hover:text-primary transition-colors leading-tight tracking-tight line-clamp-2">
+                  {post.title}
+                </h3>
+                
+                <p className="text-on-surface-variant text-[1rem] leading-[1.6] line-clamp-2 italic mt-auto">
+                  {post.excerpt}
+                </p>
+              </article>
+            </Link>
+          ))
+        )}
       </div>
     </div>
   );

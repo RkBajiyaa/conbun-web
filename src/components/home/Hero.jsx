@@ -22,28 +22,28 @@ export default function Hero() {
         
         {/* Left Content */}
         <div className="lg:col-span-7 z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full bg-primary-fixed">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full bg-primary/10">
             <span className="material-symbols-outlined text-primary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>
               verified
             </span>
-            <span className="text-on-primary-fixed text-[0.75rem] font-extrabold tracking-[0.1em] uppercase">
+            <span className="text-primary text-[0.75rem] font-extrabold tracking-[0.1em] uppercase">
               Trusted by 6,000+ Pet Parents
             </span>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-[-0.02em] text-on-surface leading-[1.05] mb-6">
             Expert Vet Care. <br/>
-            <span className="text-primary-container italic font-medium">Instantly.</span>
+            <span className="text-primary italic font-medium">Instantly.</span>
           </h1>
           
           <p className="text-[1.125rem] text-on-surface-variant leading-[1.6] mb-10 max-w-xl italic">
             Skip the waiting room. Connect with world-class specialists in under 
-            <span className="font-bold text-on-surface underline decoration-primary-container/40 mx-1">
+            <span className="font-bold text-on-surface underline decoration-primary/40 mx-1">
               60 seconds
             </span> for immediate peace of mind.
           </p>
 
-          {/* NEW: Interactive Concern Chips */}
+          {/* Interactive Concern Chips */}
           <div className="mb-8">
             <p className="text-sm font-extrabold text-on-surface-variant uppercase tracking-widest mb-4">What's bothering your pet?</p>
             <div className="flex flex-wrap gap-3">
@@ -76,7 +76,7 @@ export default function Hero() {
                 <div className="w-12 h-12 rounded-full border-4 border-surface overflow-hidden relative editorial-shadow bg-surface-container-low">
                    <Image src="/dog.png" alt="User" fill className="object-cover" />
                 </div>
-                <div className="w-12 h-12 rounded-full border-4 border-surface bg-primary-container flex items-center justify-center text-[10px] font-black text-white editorial-shadow">
+                <div className="w-12 h-12 rounded-full border-4 border-surface bg-primary flex items-center justify-center text-[10px] font-black text-white editorial-shadow">
                   4.9★
                 </div>
               </div>
@@ -99,19 +99,19 @@ export default function Hero() {
             />
             
             <div className="absolute bottom-8 left-8 right-8 glass-nav p-6 rounded-2xl ghost-border flex items-center gap-4">
-              <div className="w-12 h-12 bg-primary-container/20 rounded-full flex items-center justify-center shrink-0">
-                <span className="material-symbols-outlined text-primary-container" style={{ fontVariationSettings: "'FILL' 1" }}>
+              <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>
                   timer
                 </span>
               </div>
               <div>
-                <p className="text-[0.75rem] font-extrabold text-primary-container uppercase tracking-widest mb-1">Live Response</p>
+                <p className="text-[0.75rem] font-extrabold text-primary uppercase tracking-widest mb-1">Live Response</p>
                 <p className="text-lg font-extrabold text-on-surface tracking-tight">Connected in 42s</p>
               </div>
             </div>
           </div>
           
-          <div className="absolute -top-12 -right-12 w-64 h-64 bg-primary-container/10 rounded-full blur-[100px] -z-10"></div>
+          <div className="absolute -top-12 -right-12 w-64 h-64 bg-primary/10 rounded-full blur-[100px] -z-10"></div>
         </div>
       </div>
     </header>
