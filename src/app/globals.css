@@ -20,7 +20,7 @@
   /* 4. Typography Configuration */
   --font-jakarta: "Plus Jakarta Sans", ui-sans-serif, system-ui;
   
-  /* 5. Custom Animations (Integrated from Claude) */
+  /* 5. Custom Animations */
   --animate-float: float 3s ease-in-out infinite;
 
   @keyframes float {
@@ -37,22 +37,28 @@
     color: var(--color-on-surface);
     font-family: var(--font-jakarta);
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    -moz-osx-font-smoothing: grayscale; /* Font rendering optimization */
   }
 
-  /* Editorial Typography Scale (From DESIGN.md) */
+  /* Editorial Typography Scale: Strictly Centered Globally */
   h1 { @apply tracking-[-0.02em] leading-[1.1] font-extrabold; }
-  h2 { @apply tracking-[-0.01em] leading-tight font-bold; }
+  h2 { @apply tracking-[-0.01em] leading-tight font-extrabold text-center mx-auto; } 
+  h3 { @apply tracking-tight leading-tight font-extrabold text-center mx-auto; }
   p { @apply leading-[1.6]; } 
   
   ::selection { 
     background-color: var(--color-primary); 
     color: white; 
   }
+
+  /* Vibrant by Default: Force all images to load in full color immediately */
+  img, video {
+    filter: none !important;
+  }
 }
 
 @layer components {
-  /* Glassmorphism Rule (DESIGN.md Section 2) */
+  /* Glassmorphism Rule */
   .glass-nav {
     background: rgba(251, 249, 248, 0.8);
     backdrop-filter: blur(20px);
@@ -64,7 +70,7 @@
     box-shadow: 0 12px 32px -4px rgba(237, 128, 45, 0.12);
   }
 
-  /* Ghost Border (Section 4 of DESIGN.md) */
+  /* Ghost Border */
   .ghost-border {
     border: 1px solid var(--color-outline-variant);
   }
@@ -87,13 +93,20 @@
 }
 
 @layer utilities {
-  /* Section Spacing (Section 6 of DESIGN.md) */
+  /* Section Spacing - UPDATED: Responsive and tighter to prevent "zoomed out" feeling */
   .section-gap {
-    padding-top: 8.5rem;
-    padding-bottom: 8.5rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  @media (min-width: 768px) {
+    .section-gap {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
   }
 
-  /* Editorial Grid (Claude's 12-column logic) */
+  /* Editorial Grid */
   .editorial-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);

@@ -32,10 +32,10 @@ export default function AppFeatures() {
     <div className="w-full py-10">
       <div className="text-center mb-16 md:mb-24">
         <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-on-surface mb-4">
-          The Sanctuary in Your Pocket
+          How to consult with our Vet
         </h2>
         <p className="text-[1.125rem] text-on-surface-variant leading-[1.6] italic max-w-2xl mx-auto">
-          We've reimagined pet healthcare to be as fast, personal, and professional as you deserve.
+          We've reimagined pet healthcare to be as instant, personal, and professional as you deserve.
         </p>
       </div>
 

@@ -9,7 +9,7 @@ export default function ClosingCTA() {
 
       <div className="relative z-10 max-w-3xl mx-auto px-6 py-24 text-center flex flex-col items-center gap-8">
         {/* Icon */}
-        <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center">
+        <div className="w-12 h-8 bg-white/20 rounded-full flex items-center justify-center">
           <span
             className="material-symbols-outlined text-white text-4xl"
             style={{ fontVariationSettings: "'FILL' 1" }}
